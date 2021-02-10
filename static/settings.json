@@ -1,0 +1,12 @@
+{
+  "questionPaths":[
+    {
+      "path": "./question/level1.json",
+      "title": "Level 1"
+    },
+    {
+      "path": "./question/level2.json",
+      "title": "Level 2"
+    }
+  ]
+}

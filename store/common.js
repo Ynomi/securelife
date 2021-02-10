@@ -1,6 +1,7 @@
 // state: state の管理
 export const state = () => ({
   currentDisplay: '', // 現在表示している画面情報
+  settingInformation: {}, // settings.json の内容
   questionList: [], // 問題リスト
   answerList: [], // 解答リスト
   countCorrectAnswer: 0, // 正解数
@@ -13,6 +14,9 @@ export const getters = {}
 export const mutations = {
   setCurrentDisplay(state, value) {
     state.currentDisplay = value
+  },
+  setSettingInformation(state, value) {
+    state.settingInformation = value
   },
   setQuestionList(state, value) {
     state.questionList = value

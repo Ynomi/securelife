@@ -1,10 +1,11 @@
 <template>
   <div>
-    <h1>Quiz 仮置き</h1>
+    <h1>OX_Quiz</h1>
 
     <button @click="stopQuiz()">中止</button><br />
+    <p>{{ qNum + 1 }}問目</p>
 
-    <Q :question="question" :q-num="qNum"></Q>
+    <Q :question="question" :question-num="qNum"></Q>
 
     <button @click="correctAnswer('o')">o</button><br />
     <button @click="correctAnswer('x')">x</button>

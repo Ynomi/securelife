@@ -8,6 +8,7 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex'
+import settingJsonPath from '~/static/settings.json'
 
 export default {
   components: {
@@ -19,6 +20,7 @@ export default {
     ...mapState('common', [
       // store/index.jsの場合('common')は必要ない
       'currentDisplay',
+      'settingInformation',
     ]),
   },
   created() {
@@ -26,9 +28,10 @@ export default {
     this.initialSettings() // 初期設定
   },
   methods: {
-    ...mapMutations('common', ['setCurrentDisplay']),
+    ...mapMutations('common', ['setCurrentDisplay', 'setSettingInformation']),
     // 初期設定
     initialSettings() {
+      this.setSettingInformation(settingJsonPath)
       this.setCurrentDisplay('top')
     },
   },
