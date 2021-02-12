@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="title">{{ title }}</h1>
+    <h1 class="title"><font color="primary">{{ title }}</font></h1>
 
     <ul>
       <li
@@ -13,7 +13,7 @@
       </li>
     </ul>
 
-    <button :disabled="!selectLevelPath" @click="showQuiz()">Start</button>
+    <v-btn color="secondary" :disabled="!selectLevelPath" @click="showQuiz()">Start</v-btn>
   </div>
 </template>
 

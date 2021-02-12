@@ -1,5 +1,6 @@
 <template>
   <v-app dark>
+    <!--
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -41,11 +42,13 @@
         <v-icon>mdi-menu</v-icon>
       </v-btn>
     </v-app-bar>
+    -->
     <v-main>
       <v-container>
         <nuxt />
       </v-container>
     </v-main>
+    <!--
     <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
       <v-list>
         <v-list-item @click.native="right = !right">
@@ -59,6 +62,7 @@
     <v-footer :absolute="!fixed" app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
+    -->
   </v-app>
 </template>
 
