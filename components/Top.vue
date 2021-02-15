@@ -1,20 +1,40 @@
 <template>
-  <div>
-    <h1 class="title"><font color="primary">{{ title }}</font></h1>
+  <v-card class="mx-auto" height="550">
+    <v-card class="my-6">
+      <v-layout justify-center>
+        <v-card-title>
+          <font color="primary" size="7">{{ title }}</font>
+        </v-card-title>
+      </v-layout>
+    </v-card>
 
-    <ul>
-      <li
-        v-for="(qLevel, index) in settingInformation.questionPaths"
-        :key="index"
-        :class="{ selected: selectLevelPath === qLevel.path }"
-        @click="selectQuizLevel(qLevel.path)"
+    <v-list nav class="mx-auto my-12" width="500">
+      <v-subheader>Select a level</v-subheader>
+      <v-list-item-group
+        color="info"
       >
-        {{ qLevel.title }}
-      </li>
-    </ul>
+        <v-list-item
+          v-for="(qLevel, i) in settingInformation.questionPaths"
+          :key="i"
+          :class="{ selected: selectLevelPath === qLevel.path }"
+          @click="selectQuizLevel(qLevel.path)"
+        >
+          {{ qLevel.title }}
+        </v-list-item>
+      </v-list-item-group>
+    </v-list>
 
-    <v-btn color="secondary" :disabled="!selectLevelPath" @click="showQuiz()">Start</v-btn>
-  </div>
+    <v-layout justify-center>
+      <v-btn
+        color="secondary"
+        :disabled="!selectLevelPath"
+        max-width="100"
+        @click="showQuiz()"
+      >Start</v-btn
+      >
+    </v-layout>
+
+  </v-card>
 </template>
 
 <script>
