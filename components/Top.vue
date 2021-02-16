@@ -8,11 +8,9 @@
       </v-layout>
     </v-card>
 
-    <v-list nav class="mx-auto my-12" width="500">
+    <v-list nav class="mx-auto my-12" width="450">
       <v-subheader>Select a level</v-subheader>
-      <v-list-item-group
-        color="info"
-      >
+      <v-list-item-group color="info">
         <v-list-item
           v-for="(qLevel, i) in settingInformation.questionPaths"
           :key="i"
@@ -30,10 +28,9 @@
         :disabled="!selectLevelPath"
         max-width="100"
         @click="showQuiz()"
-      >Start</v-btn
+        >Start</v-btn
       >
     </v-layout>
-
   </v-card>
 </template>
 

@@ -1,8 +1,6 @@
 <template>
   <div>
-    <h1>Question</h1>
-
-    <p v-html="question.q"></p>
+    <v-card-text v-html="question.q"></v-card-text>
   </div>
 </template>
 

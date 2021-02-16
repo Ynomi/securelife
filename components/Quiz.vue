@@ -1,15 +1,20 @@
 <template>
-  <div>
-    <h1>OX_Quiz</h1>
-
-    <button @click="stopQuiz()">中止</button><br />
-    <p>{{ qNum + 1 }}問目</p>
+  <v-card>
+    <v-layout>
+      <v-card-text
+        >{{ qNum + 1 }}問目 / 全{{ questionList.length }}問</v-card-text
+      >
+      <v-btn color="secondary" @click="stopQuiz()">中止</v-btn>
+    </v-layout>
 
     <Q :question="question" :question-num="qNum"></Q>
 
-    <button @click="correctAnswer('o')">o</button><br />
-    <button @click="correctAnswer('x')">x</button>
-  </div>
+    <v-card-actions>
+      <v-btn color="secondary" @click="correctAnswer('o')">o</v-btn>
+
+      <v-btn color="secondary" @click="correctAnswer('x')">x</v-btn>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>
@@ -24,7 +29,7 @@ export default {
       question: {}, // 表示する問題
       qNum: 0, // 問題番号
       countCorrectAnswer: 0, // 正解数
-      answerList: [], // 洗濯した解答リスト
+      answerList: [], // 選択した解答リスト
     }
   },
   computed: {

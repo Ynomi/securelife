@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <h1>Result</h1>
-    <h2>{{ questionList.length }}問中、{{ countCorrectAnswer }}問正解</h2>
+  <v-card>
+    <v-card-title>Result</v-card-title>
+    <v-card-text>{{ questionList.length }}問中、{{ countCorrectAnswer }}問正解</v-card-text>
 
-    <button @click="showTop()">Top</button>
-  </div>
+    <v-btn color="secondary" @click="showTop()">Top</v-btn>
+  </v-card>
 </template>
 
 <script>
