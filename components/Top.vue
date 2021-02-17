@@ -1,37 +1,38 @@
 <template>
-  <v-card class="mx-auto" height="550">
-    <v-card class="my-6">
+  <div>
+    <v-card class="mx-auto" width="900">
       <v-layout justify-center>
-        <v-card-title>
-          <font color="primary" size="7">{{ title }}</font>
-        </v-card-title>
+        <h1 class="primary--text">{{ title }}</h1>
       </v-layout>
     </v-card>
 
-    <v-list nav class="mx-auto my-12" width="450">
-      <v-subheader>Select a level</v-subheader>
-      <v-list-item-group color="info">
-        <v-list-item
-          v-for="(qLevel, i) in settingInformation.questionPaths"
-          :key="i"
-          :class="{ selected: selectLevelPath === qLevel.path }"
-          @click="selectQuizLevel(qLevel.path)"
-        >
-          {{ qLevel.title }}
-        </v-list-item>
-      </v-list-item-group>
-    </v-list>
+    <v-card class="mx-auto my-3 py-10" width="900" height="450">
+      <v-list nav class="mx-16 pa-16" elevation="2" color="accent">
+        <v-subheader class="mb-6">Select a level</v-subheader>
+        <v-list-item-group color="success">
+          <v-list-item
+            v-for="(qLevel, i) in settingInformation.questionPaths"
+            :key="i"
+            :class="{ selected: selectLevelPath === qLevel.path }"
+            @click="selectQuizLevel(qLevel.path)"
+          >
+            {{ qLevel.title }}
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-card>
 
-    <v-layout justify-center>
+    <v-layout justify-center class="my-10">
       <v-btn
+        rounded
         color="secondary"
         :disabled="!selectLevelPath"
-        max-width="100"
+        height="100"
         @click="showQuiz()"
         >Start</v-btn
       >
     </v-layout>
-  </v-card>
+  </div>
 </template>
 
 <script>
@@ -60,11 +61,9 @@ export default {
      * @param {string} path 各問題ファイルまでのパス
      */
     selectQuizLevel(path) {
-      if (path === this.selectLevelPath) {
-        this.selectLevelPath = ''
-      } else {
-        this.selectLevelPath = path
-      }
+      path === this.selectLevelPath
+        ? (this.selectLevelPath = '')
+        : (this.selectLevelPath = path)
     },
     /**
      * クイズコンポーネントを表示する

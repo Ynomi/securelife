@@ -1,18 +1,42 @@
 <template>
-  <v-card>
+  <v-card class="my-16 pa-16">
     <v-layout>
-      <v-card-text
-        >{{ qNum + 1 }}問目 / 全{{ questionList.length }}問</v-card-text
+      <p>{{ qNum + 1 }}問目</p>
+      <v-spacer />
+      <v-btn
+        height="45"
+        color="secondary"
+        class="pa-1"
+        x-small
+        @click="stopQuiz()"
+        >中止</v-btn
       >
-      <v-btn color="secondary" @click="stopQuiz()">中止</v-btn>
     </v-layout>
 
     <Q :question="question" :question-num="qNum"></Q>
 
     <v-card-actions>
-      <v-btn color="secondary" @click="correctAnswer('o')">o</v-btn>
-
-      <v-btn color="secondary" @click="correctAnswer('x')">x</v-btn>
+      <v-btn
+        width="150"
+        height="150"
+        elevation="24"
+        rounded
+        outlined
+        class="red--text mx-16"
+        @click="correctAnswer('o')"
+        >o</v-btn
+      >
+      <v-spacer></v-spacer>
+      <v-btn
+        width="150"
+        height="150"
+        elevation="24"
+        rounded
+        outlined
+        class="blue--text mx-16"
+        @click="correctAnswer('x')"
+        >x</v-btn
+      >
     </v-card-actions>
   </v-card>
 </template>
@@ -60,9 +84,8 @@ export default {
      * @param {string} answer 選択した解答 {o, x}
      */
     correctAnswer(answer) {
-      if (answer === this.question.a) {
-        this.countCorrectAnswer++
-      }
+      if (answer === this.question.a) this.countCorrectAnswer++
+
       this.answerList[this.qNum] = this.answer
 
       this.qNum++

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card-text v-html="question.q"></v-card-text>
+    <p class="mx-12" v-html="question.q"></p>
   </div>
 </template>
 
